@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KELIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+<body>
+
+  <!-- Resend-style light beam -->
+  <div class="beam"></div>
+  <div class="beam-line"></div>
+
+  <div class="auth-container">
+
+    <!-- Brand -->
+    <div class="brand">
+      <div class="brand-icon">
+        <i class="bi bi-infinity" style="font-size:18px;"></i>
+      </div>
+      <span class="brand-name">KELIR</span>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+        <button class="tab" id="tab-signup" onclick="switchTab('signup')">Sign Up</button>
+        <div class="tab-indicator" id="tab-indicator"></div>
+      </div>
+
+      <!-- Error / Success -->
+      <div class="alert" id="alert"></div>
+
+      <!-- LOGIN FORM -->
+      <form class="form" id="form-login" onsubmit="handleLogin(event)">
+        <h2 class="form-title">Welcome back</h2>
+        <p class="form-subtitle">Sign in to continue your conversations</p>
+
+        <div class="field">
+          <label>Email</label>
+          <div class="input-wrap">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input type="email" id="login-email" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <div class="input-wrap">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="login-password" placeholder="••••••••" required />
+            <button type="button" class="eye-btn" onclick="togglePwd('login-password', this)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" id="btn-login">
+          <span class="btn-text">Sign In</span>
+          <span class="btn-loader hidden"></span>
+        </button>
+
+        <p class="switch-text">Don't have an account? <a href="#" onclick="switchTab('signup')">Sign up</a></p>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form class="form hidden" id="form-signup" onsubmit="handleSignup(event)">
+        <h2 class="form-title">Create account</h2>
+        <p class="form-subtitle">Start chatting with KELIR today</p>
+
+        <div class="field">
+          <label>Full Name</label>
+          <div class="input-wrap">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <input type="text" id="signup-name" placeholder="John Doe" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <div class="input-wrap">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input type="email" id="signup-email" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <div class="input-wrap">
+            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="signup-password" placeholder="Min. 6 characters" required minlength="6" />
+            <button type="button" class="eye-btn" onclick="togglePwd('signup-password', this)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" id="btn-signup">
+          <span class="btn-text">Create Account</span>
+          <span class="btn-loader hidden"></span>
+        </button>
+
+        <p class="switch-text">Already have an account? <a href="#" onclick="switchTab('login')">Sign in</a></p>
+      </form>
+
+    </div><!-- /card -->
+
+    <p class="footer-text">© 2026 KELIR. Your conversations, your data.</p>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
