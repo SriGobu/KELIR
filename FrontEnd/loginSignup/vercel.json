@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/",        "destination": "/loginSignup/index.html" },
+    { "source": "/chatbot", "destination": "/chatBot/chatBot.html"   }
+  ]
+}
