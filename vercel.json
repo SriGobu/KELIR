@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "routes": [
-    { "src": "/",        "dest": "/loginSignup/index.html" },
-    { "src": "/login",   "dest": "/loginSignup/index.html" },
-    { "src": "/chatbot", "dest": "/chatBot/chatBot.html"   },
-    { "src": "/(.*)",    "dest": "/$1" }
-  ]
-}
