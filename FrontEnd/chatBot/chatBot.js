@@ -1,4 +1,4 @@
-const API = 'http://localhost:4000';
+const API = 'https://www.kelir-api.sg247.dev';
 
 // ── Auth guard ────────────────────────────────────────────────────────────────
 const token = localStorage.getItem('token');

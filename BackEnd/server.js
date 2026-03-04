@@ -7,7 +7,19 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
 const corsOptions = {
-  origin: ['http://127.0.0.1:5500', 'http://localhost:5500', 'http://127.0.0.1:3000', 'http://localhost:3000'],
+  origin: [
+    // Local development
+    'http://127.0.0.1:5500',
+    'http://localhost:5500',
+    'http://127.0.0.1:3000',
+    'http://localhost:3000',
+    // Production — Vercel
+    'https://kelir786.vercel.app',
+    'https://kelir786-srigobu247-2315s-projects.vercel.app',
+    // Production — Custom domain
+    'https://www.kelir.sg247.dev',
+    'https://kelir.sg247.dev'
+  ],
   methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
