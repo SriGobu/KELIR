@@ -1,6 +1,9 @@
 {
-  "rewrites": [
-    { "source": "/",        "destination": "/loginSignup/index.html" },
-    { "source": "/chatbot", "destination": "/chatBot/chatBot.html"   }
+  "version": 2,
+  "routes": [
+    { "src": "/",        "dest": "/loginSignup/index.html" },
+    { "src": "/login",   "dest": "/loginSignup/index.html" },
+    { "src": "/landing", "dest": "/landingPage/landingPage.html" },
+    { "src": "/(.*)",    "dest": "/$1" }
   ]
 }
